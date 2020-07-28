@@ -13,7 +13,7 @@ import Colors from "../theme/colors";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 
-export default StartGame = props => {
+export default StartGame = ({ onStartGame }) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [hasConfirmed, setHasConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
@@ -78,7 +78,7 @@ export default StartGame = props => {
           <Card style={styles.summaryContainer}>
             <Text style={{ textAlign: "center" }}>You selected:</Text>
             <NumberContainer>{selectedNumber}</NumberContainer>
-            <Button title="START GAME" />
+            <Button title="START GAME" onPress={() => onStartGame(selectedNumber)} />
           </Card>
         ) : (
           undefined
